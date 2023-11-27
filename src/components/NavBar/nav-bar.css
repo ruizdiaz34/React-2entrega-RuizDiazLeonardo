@@ -1,0 +1,14 @@
+.navbar {
+    display: flex;
+    justify-content:space-between;
+    
+}
+.ulflex{
+    display: flex;
+    
+}
+.lista{
+    list-style: none;
+    cursor: pointer;
+    width: 6.25rem;
+}
