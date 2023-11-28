@@ -1,0 +1,22 @@
+.boton-contador{
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.buton-suma{
+    border: none;
+    outline: 0;
+    padding: 9px;
+    color: white;
+    background: rgb(43, 44, 43);
+    text-align: center;
+}
+.buton-suma:hover{
+    opacity: 0.7;
+}
+.count-suma{
+    outline: 0;
+    padding: 9px;
+
+}

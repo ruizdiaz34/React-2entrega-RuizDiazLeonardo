@@ -5,24 +5,30 @@ import "./item-list-container.css"
 
 export const ItemListContainer = () => {
 
+  const [isLoading, setIsLoading] = useState(true);
+
   const [products, setProducts] = useState([]);
 
   useEffect( ()=> {
     getProducts()
-    .then((response)=> setProducts(response))
+    .then((response)=>{
+      setIsLoading(!isLoading);
+      setProducts(response);
+    }) 
     .catch((error)=> console.log(error));
   },[]);
 
   return (
     <>
-    <h2>Productos</h2>
+    
+    <h2 className="h2-productos">Productos</h2>
     <div className="cards-container">
-    { products.map( product => 
-   <ItemDetail key={product.id} img={product.img} name={product.name} description={product.description}/>
+    {
+      isLoading ? <h2>Cargando los productos..</h2> :
+     products.map( product => 
+   <ItemDetail key={product.id} img={product.img} name={product.name} description={product.description} price={product.price} stock={product.stock} />
    )}
-
-      </div> 
-  
+   </div> 
     </>
    
   )
