@@ -1,0 +1,10 @@
+.cards-container{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 1.875rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    padding-top: 50px;
+    padding-bottom: 100px;
+}

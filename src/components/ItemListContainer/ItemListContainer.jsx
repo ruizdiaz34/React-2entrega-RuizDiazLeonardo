@@ -1,35 +1,44 @@
 import { useEffect, useState } from "react"
 import { getProducts } from "../../productosMock"
-import { ItemDetail } from "../ItemDetail/ItemDetail";
 import "./item-list-container.css"
+import { Itemlist } from "../ItemList/ItemList";
+import { useParams } from "react-router-dom";
 
 export const ItemListContainer = () => {
 
+  const { category} = useParams();
   const [isLoading, setIsLoading] = useState(true);
-
   const [products, setProducts] = useState([]);
 
   useEffect( ()=> {
+    setIsLoading(true);
     getProducts()
     .then((response)=>{
-      setIsLoading(!isLoading);
-      setProducts(response);
+      if (category){
+        const productsFilter =response.filter((products)=> products.category === category);
+        if(productsFilter.length > 0){
+
+          setProducts(productsFilter);
+        }
+        else{
+          setProducts(response);
+        }
+      } else{
+        setProducts(response);
+      }
+      setIsLoading(false);
+      
     }) 
     .catch((error)=> console.log(error));
-  },[]);
+  },[category]);
 
   return (
     <>
+    <h2 className="h2-productos">Productos</h2> 
+     {
+      isLoading ? <h2 className="h2-productos">Cargando los productos..</h2> : <Itemlist products={products}/>
+   }
     
-    <h2 className="h2-productos">Productos</h2>
-    <div className="cards-container">
-    {
-      isLoading ? <h2>Cargando los productos..</h2> :
-     products.map( product => 
-   <ItemDetail key={product.id} img={product.img} name={product.name} description={product.description} price={product.price} stock={product.stock} />
-   )}
-   </div> 
     </>
-   
-  )
+    )
 }

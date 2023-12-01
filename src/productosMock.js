@@ -18,3 +18,21 @@ const products = [
             }
         } )
      }
+
+     export const getProductById = (id) => {
+        return new Promise((resolve, reject) => {
+          
+          if (products.length > 0) {
+            const product = products.find( p => p.id === id);
+            
+            setTimeout(() => {
+              if(!product) {
+                reject(`No se encuentra el productos con el id ${id}`)
+              }
+              resolve(product);
+            }, 2000);
+          } else {
+            reject("No hay productos");
+          }
+        });
+      }; 

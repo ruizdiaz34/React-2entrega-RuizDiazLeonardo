@@ -9,6 +9,9 @@
 }
 .lista{
     list-style: none;
+    text-decoration: none;
     cursor: pointer;
     width: 6.25rem;
+    color: black;
 }
+
