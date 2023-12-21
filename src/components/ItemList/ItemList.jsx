@@ -12,4 +12,4 @@ export const Itemlist = ({products}) => {
     </div>
     </>
   )
-}
+};

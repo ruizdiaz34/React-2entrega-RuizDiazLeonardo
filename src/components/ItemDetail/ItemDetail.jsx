@@ -1,12 +1,16 @@
 
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 import { ItemCount } from "../ItemCount/ItemCount"
 import "./item-detail.css"
 
-export const ItemDetail = ({img, name, price, description, stock }) => {
+export const ItemDetail = ({ id, img, name, price, description, stock }) => {
+  
+  const {cartItems,setCartItems} = useContext(CartContext)
+ const buyProduct = (product)=>{
+  console.log(product);
+ }
 
-  const onAdd = (Items) =>{
-    alert(`Se agregaron ${Items} al carrito`)
-  }
   return (
     <>
     
@@ -14,9 +18,9 @@ export const ItemDetail = ({img, name, price, description, stock }) => {
         <img className="cards-img" src={img} />
         <h3>{name}</h3>   
         <h5>{description}</h5>
-        <ItemCount max={stock} onAdd={onAdd}/>
+        <ItemCount max={stock}/>
         <h4>${price}</h4>
-        <button className="boton-agregar">Agregar al carrito</button>
+        <button className="boton-agregar" onClick={()=>buyProduct( product )}  >Agregar al carrito</button>
       </div>
     
     </>
