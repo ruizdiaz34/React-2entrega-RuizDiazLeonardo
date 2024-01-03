@@ -1,9 +1,12 @@
 
 import { Item } from "../Item/Item"
 import "./item-list.css"
+import { FirebaseContext } from "../../context/FirebaseContext";
+import { useContext } from "react";
 
+export const Itemlist = () => {
 
-export const Itemlist = ({products}) => {
+  const { products } = useContext(FirebaseContext);
   return (
     <>
     <div className="cards-container">

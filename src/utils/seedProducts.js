@@ -1,5 +1,7 @@
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../config/firebaseConfig";
+import { useState } from "react";
+
 
 const products = [
     { name: "Cebolla", img: "https://hiperlibertad.vtexassets.com/arquivos/ids/176852/CEBOLLA-x-500-g-1-17351.jpg?v=637546273212600000", price: 50, category: "verdura", description: "cebolla chica", stock: 20 },
@@ -11,11 +13,14 @@ const products = [
 ];
 
 
+  const [isLoading, setIsLoading] = useState(true);
+  const [product, setProduct] = useState(null);
 
 export const seedProducts = () => {
   
     products.forEach( product =>{
-        addDoc( collection( db , "products"), product)
+        addDoc( collection( db , "products"), product);
     })
   
 };
+

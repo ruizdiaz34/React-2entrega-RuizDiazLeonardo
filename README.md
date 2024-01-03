@@ -1,8 +1,18 @@
-# React + Vite
+# Proyecto e-commerce con React 
+## Descripcion del proyecto
+Este es un proyecto para el curso de React donde realizamos un e-commerce, por mi parte hice una app referida a una verduleria donde se muestran sus productos.
+> #### Intalacion
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+------------
+- git clone "https://github.com/ruizdiaz34/React-2entrega-RuizDiazLeonardo.git"
+- npm install
+- npm run dev
 
-Currently, two official plugins are available:
+------------
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+> #### Tecnologias 
+- React js
+- Node
+- Vite
+- Reac Router Dom
+- Firebase

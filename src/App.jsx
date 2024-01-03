@@ -1,13 +1,13 @@
-import { Cart, ItemDetailContainer } from './components'
-import { ItemListContainer } from './components/ItemListContainer/ItemListContainer'
-import { NavBar } from './components/NavBar/Navbar'
+import { Cart, ItemDetailContainer, ItemListContainer, NavBar } from './components'
 import {BrowserRouter, Route, Routes} from "react-router-dom"
 import {CartContextProvider } from './context/CartContext'
+import { FirebaseContextProvider } from './context/FirebaseContext';
 
 export const App = () => {
   return (
-<CartContextProvider>
-  <BrowserRouter>
+    <FirebaseContextProvider>
+      <CartContextProvider>
+        <BrowserRouter>
         <NavBar/>
       { <Routes>
         <Route path="/" element={<ItemListContainer/>}   />
@@ -15,10 +15,11 @@ export const App = () => {
         <Route path="/item/:id" element={<ItemDetailContainer/>} />
         <Route path="/cart" element={<Cart/>}/>
         </Routes>}
-    </BrowserRouter>
-</CartContextProvider>
+        </BrowserRouter>
+        </CartContextProvider>
+    </FirebaseContextProvider>
       
     
   )
-}
+};
 

@@ -1,23 +1,26 @@
-import { useEffect, useState } from "react";
-import { getProductById } from "../../productosMock";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { ItemDetail } from "../ItemDetail/ItemDetail";
+import { FirebaseContext } from "../../context/FirebaseContext";
+import { useContext } from "react";
 
 export const ItemDetailContainer = () => {
-    const { id } = useParams();
-    const [item, setItem] = useState(null);
 
-    useEffect( () => { 
-      getProductById(id)
-        .then(response => setItem(response))
-        .catch(error => console.log(error));
-        
-     }, [])
-  return (
-    <>
-    {item && <ItemDetail {...item} />}
-    </>
-  )
+  const { product, getProductById } = useContext(FirebaseContext);
+
+  const { id } = useParams();
+
+  useEffect( () => { 
+    getProductById(id)
+      
+      
+   }, [])
+return (
+  <>
+   <ItemDetail {...product} />
+  </>
+)
 }
+
   
 

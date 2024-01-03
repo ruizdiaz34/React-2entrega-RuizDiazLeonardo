@@ -6,38 +6,27 @@ import "./cart-style.css"
 export const Cart = () => {
 
   const { cartItems, totalCartItems, removeItem } = useContext( CartContext);
-  console.log(cartItems)
   return (
     <div>
-      <h2>Carrito</h2>
-      <div className="cards">
-          <div key={product.id}>
-            <img className="cards-img" src= {product.img} />
-            <h3>Nombre: {product.name} </h3>
-            <h3>Precio Unitario: {product.price} </h3>
+      <h2 className="h2-carrito">Carrito</h2>
+      <div className="cart">
+      {cartItems.map((item) => (
+          <div className="cart-conten" key={item.id}>
+            <img className="cart-img" src= {item.img} />
+            <h3>{item.name} </h3>
+            <h3>{item.quantity} </h3>{}
+            <h3>Precio Unitario: {item.price} </h3>
+            <h3>Subtotal: {item.subTotal}</h3>
             
-            <button >
+            <button  onClick={() => removeItem(item.id)}>
               Eliminar
             </button>
-          </div>
+          </div>))}
+      <h4 className="suma-total">Suma total del carrito ${totalCartItems} </h4>
       </div>
-      <h4>Suma total del carrito $ </h4>
     </div>
-  );
-};
+  ) };
 
 
 
-/* 
-Orden de compra 
 
-collection: "orders"
-documents: las ordenes de compra 
-document = {
-  buyer: { name, phone, email },
-  items: {id, name, price, quantity, subTotal},
-  date: serverTimestamp();
-  total: es el total de la compra
-}
-
-*/

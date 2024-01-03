@@ -1,12 +1,40 @@
-.cards-img{
-    width: 90%;
-    height: 15.625rem;
+.h2-carrito{
+    text-align: center;
+    margin: 10px;
+}
+.cart-img{
+    width: 7.5rem;
+    height: 7.5rem;
 }
 
-.cards{
-    box-shadow: 0 4px 8px 0 rgb(0, 0, 0, 0.2);
-    max-width: 18.75rem;
-    margin: auto;
-    text-align: center;
+.cart{
+    width: 80%;
+    margin: 0 10%;
+    max-height: 80vh;
+    color: white;
+    background-color: rgb(31, 32, 30);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    overflow: auto;
+    z-index: 9;
+    top: 12vh;
+    scrollbar-color: none;
 
+}
+.cart-conten{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: space-around;
+    align-items: center;
+    width: 70%;
+    margin: .625rem;
+}
+.suma-total{
+    font-size: 1.5625rem;
+    padding: 1.25rem;
+    text-align: center;
+    padding-top: 1.25rem;
 }
